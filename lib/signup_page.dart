@@ -1,3 +1,4 @@
+import 'package:assignment/otp_page.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -99,24 +100,34 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: h * .05),
-          Container(
-            width: w * .5,
-            height: h * .08,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/loginbtn.png'),
-                fit: BoxFit.cover,
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const OTPPage(),
+                ),
+              );
+            },
+            child: Container(
+              width: w * .5,
+              height: h * .08,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/loginbtn.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            child: const Center(
-              child: Text(
-                "Sign up",
-                style: TextStyle(
-                  fontSize: 40,
-                  fontFamily: 'EduSABeginner',
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              child: const Center(
+                child: Text(
+                  "Send OTP",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontFamily: 'EduSABeginner',
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

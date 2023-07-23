@@ -1,3 +1,5 @@
+import 'package:assignment/otp_page.dart';
+import 'package:assignment/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -85,41 +87,55 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           const SizedBox(height: 50),
-          Container(
-            width: w * .5,
-            height: h * .08,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              image: const DecorationImage(
-                image: AssetImage('assets/images/loginbtn.png'),
-                fit: BoxFit.cover,
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const OTPPage();
+              }));
+            },
+            child: Container(
+              width: w * .5,
+              height: h * .08,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                image: const DecorationImage(
+                  image: AssetImage('assets/images/loginbtn.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            child: const Center(
-              child: Text(
-                "Sign in",
-                style: TextStyle(
-                  fontSize: 40,
-                  fontFamily: 'EduSABeginner',
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+              child: const Center(
+                child: Text(
+                  "Sign in",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontFamily: 'EduSABeginner',
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
           ),
           SizedBox(height: w * .08),
-          RichText(
-            text: const TextSpan(
-              text: "Don't have an account? ",
-              children: [
-                TextSpan(
-                  text: "Sign up",
-                  style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontWeight: FontWeight.bold,
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const SignUpPage();
+              }));
+            },
+            child: RichText(
+              text: const TextSpan(
+                text: "Don't have an account? ",
+                children: [
+                  TextSpan(
+                    text: "Sign up",
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
