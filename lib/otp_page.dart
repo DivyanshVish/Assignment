@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/style.dart';
 
 class OTPPage extends StatefulWidget {
   const OTPPage({super.key});
@@ -15,37 +17,29 @@ class _OTPPageState extends State<OTPPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Sign Up'),
+        title: const Text(
+          'Enter The OTP',
+          style: TextStyle(
+            fontFamily: 'EduSABeginner',
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+          ),
+        ),
         backgroundColor: const Color(0xfffe8289),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 60),
         child: Column(
           children: [
-            const SizedBox(height: 50),
-            TextFormField(
-              decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: const BorderSide(
-                    color: Color(0xfffe8289),
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: const BorderSide(
-                    color: Color(0xfffe8289),
-                  ),
-                ),
-                hintText: 'Enter OTP',
-                hintStyle: const TextStyle(
-                  color: Color(0xfffe8289),
-                ),
-                prefixIcon: const Icon(
-                  Icons.lock,
-                  color: Color(0xfffe8289),
-                ),
-              ),
+            const SizedBox(height: 80),
+            /* -------------------------- Using OTP Text Field -------------------------- */
+            OTPTextField(
+              length: 4,
+              width: w,
+              fieldWidth: 50,
+              style: const TextStyle(fontSize: 17),
+              textFieldAlignment: MainAxisAlignment.spaceAround,
+              fieldStyle: FieldStyle.underline,
             ),
             const SizedBox(height: 50),
             Container(
@@ -76,3 +70,30 @@ class _OTPPageState extends State<OTPPage> {
     );
   }
 }
+
+/* ------------------- Another way for the OTP Text Field ------------------- */
+
+// TextFormField(
+// decoration: InputDecoration(
+// focusedBorder: OutlineInputBorder(
+// borderRadius: BorderRadius.circular(30),
+// borderSide: const BorderSide(
+// color: Color(0xfffe8289),
+// ),
+// ),
+// enabledBorder: OutlineInputBorder(
+// borderRadius: BorderRadius.circular(30),
+// borderSide: const BorderSide(
+// color: Color(0xfffe8289),
+// ),
+// ),
+// hintText: 'Enter OTP',
+// hintStyle: const TextStyle(
+// color: Color(0xfffe8289),
+// ),
+// prefixIcon: const Icon(
+// Icons.lock,
+// color: Color(0xfffe8289),
+// ),
+// ),
+// ),

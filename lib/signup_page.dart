@@ -1,3 +1,4 @@
+import 'package:assignment/login_page.dart';
 import 'package:assignment/otp_page.dart';
 import 'package:flutter/material.dart';
 
@@ -41,14 +42,14 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(height: 50),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.transparent,
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 10,
-                        spreadRadius: 7,
+                        spreadRadius: 2,
                         offset: const Offset(1, 1),
-                        color: Colors.grey.withOpacity(.2),
+                        color: Colors.white.withOpacity(.2),
                       ),
                     ],
                   ),
@@ -133,18 +134,28 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
           SizedBox(height: w * .08),
-          RichText(
-            text: const TextSpan(
-              text: "Have an account? ",
-              children: [
-                TextSpan(
-                  text: "Sign in",
-                  style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontWeight: FontWeight.bold,
-                  ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginPage(),
                 ),
-              ],
+              );
+            },
+            child: RichText(
+              text: const TextSpan(
+                text: "Have an account? ",
+                children: [
+                  TextSpan(
+                    text: "Sign in",
+                    style: TextStyle(
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ), //
         ],
